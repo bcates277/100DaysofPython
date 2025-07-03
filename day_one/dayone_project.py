@@ -1,5 +1,6 @@
-#!/Users/betsycates/Documents/Python/.venv/bin/python
+#!/usr/bin/env python3
 
+# This script generates a brand name based on user input.
 print("Let's find out your brand name!")
 wait = input("Press Enter to continue... ")
 city = input("What city did you grow up in? ")

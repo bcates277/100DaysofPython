@@ -1,4 +1,4 @@
-#!/Users/betsycates/Documents/Python/.venv/bin/python
+#!usr/bin/env python3
 
 score = 0
 score += 1  # Increment score by 1

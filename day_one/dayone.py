@@ -1,4 +1,4 @@
-#!/Users/betsycates/Documents/Python/.venv/bin/python
+#!/usr/bin/env python3
 
 line = "------------------"
 
