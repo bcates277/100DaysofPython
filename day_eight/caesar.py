@@ -2,28 +2,35 @@
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-direction = str(input("Type 'encode' to encrypt, type 'decode' to decrypt: \n").lower())
-if direction == "encode" or direction == "decode":
-    text = input("Type your message: \n").lower()
-    shift = int(input("Type the shift number: \n"))
-else:
-    print(f"Please type a correct response {exit()}")
     
-
-list1 = []
-list2 = []
-def encrypt():
-    if direction == "encode":
-        for letters in text:
-            list1.append(alphabet.index(letters))
-        for num in range(len(list1)):
-            list1[num] += shift
-        for nums in list1:
-            list2.append(alphabet[nums])
-            
+def caesar(original_text, shift_amount, encode_or_decode):
+    output = ""
+    if encode_or_decode == 'decode':
+        shift_amount *= -1
+    for letters in original_text:
+        if letters not in alphabet:
+            output += letters
+        else:
+            shifted = (alphabet.index(letters) + shift_amount)
+            shifted %= len(alphabet)
+            output += alphabet[shifted]
+    print(f"Here is the {encode_or_decode}d result: {output}")
+should_continue = True
+while should_continue: 
+    direction = str(input("Type 'encode' to encrypt, type 'decode' to decrypt: \n").lower())
+    if direction == "encode" or direction == "decode":
+        text = input("Type your message: \n").lower()
+        shift = int(input("Type the shift number: \n"))
     else:
-        print("no")
-    print(list1, "".join(list2))
-
-encrypt()
+        print(f"Please type a correct response {exit()}") 
+        
+    caesar(text, shift, direction)
+    print("____________________________________________\n")
+    restart = input("Type 'yes' to continue, 'no' to end\n").lower()
+    if restart == "no":
+        should_continue = False
+        print("goodbye")
+    elif restart == "yes":
+        should_continue = True
+    else:
+        exit()
