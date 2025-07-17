@@ -7,6 +7,8 @@ def is_leap_year(year):
     else:
         return False
 def is_leap_year_1(year):
+    """check year and see if 
+    it is divisible by 100"""
     if year % 100 != 0:
         return True
     else:
